@@ -25,6 +25,9 @@ def processCmsDriver(command, filein=None, fileout=None):
 
   if "GEN,LHE" in command:
     command += ' --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed="int(${SEED})"'
+
+  if "NANO" in command:
+    command = command.replace("NANOEDMAODSIM", "NANOAODSIM")
   return command
 
 with open("setup_urls.json", "r") as f:
